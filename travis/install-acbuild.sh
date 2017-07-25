@@ -56,7 +56,7 @@ pushd /tmp
     ls -la
     #./build
     sudo mkdir -p /opt/${NAME}/bin
-    sudo yes | cp -rf * $BIN_DIR
+    sudo cp -rf * $BIN_DIR
     export PATH=$PATH:$BIN_DIR
   popd
 popd
