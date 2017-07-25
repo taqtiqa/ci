@@ -41,7 +41,7 @@ function json_value() {
 
 BUILD_SLUG='containers/build' # Idiosyncratic naming prevents using $BUILD_NAME
 BUILD_NAME='acbuild'
-BUILD_BIN_DIR="/opt/${BUILD_NAME}/bin"
+BUILD_BIN_DIR="/bin"
 BUILD_VERSION=$(curl -L -s -H 'Accept: application/json' https://github.com/${BUILD_SLUG}/releases/latest | json_value tag_name)
 
 NAME=${BUILD_NAME:-$DEFAULT_BUILD_NAME}
@@ -89,7 +89,7 @@ pushd /tmp
     ls -la
     sudo mkdir -p ${BIN_DIR}
     sudo cp -rf acbuild acbuild-chroot acbuild-script ${BIN_DIR}/
-    export PATH=$PATH:${BIN_DIR}
+    #export PATH=$PATH:${BIN_DIR}
   popd
 popd
 echo "Success"
