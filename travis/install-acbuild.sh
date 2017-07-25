@@ -46,6 +46,9 @@ BIN_DIR=${BUILD_BIN_DIR:-$DEFAULT_BUILD_BIN_DIR}
 ARTIFACT="${NAME}-${VERSION}.tar.gz"
 ARTIFACT_URL="https://github.com/${SLUG}/releases/download/${VERSION}/${ARTIFACT}"
 
+# System requirements
+apt-get install golang-go bootstrap systemd-container
+
 pushd /tmp
   #git clone https://github.com/${SLUG}.git ./${NAME}
   curl -L -o "${ARTIFACT}" "${ARTIFACT_URL}"
