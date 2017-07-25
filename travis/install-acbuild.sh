@@ -22,6 +22,12 @@
 
 set -eoux pipefail
 
+. /etc/lsb-release
+#DISTRIB_ID=Ubuntu
+#DISTRIB_RELEASE=12.04
+#DISTRIB_CODENAME=precise
+#DISTRIB_DESCRIPTION="Ubuntu 12.04.2 LTS"
+
 if [ "$EUID" -ne 0 ]; then
     echo "This script uses functionality which requires root privileges"
     exit 1
@@ -45,6 +51,35 @@ BIN_DIR=${BUILD_BIN_DIR:-$DEFAULT_BUILD_BIN_DIR}
 
 ARTIFACT="${NAME}-${VERSION}.tar.gz"
 ARTIFACT_URL="https://github.com/${SLUG}/releases/download/${VERSION}/${ARTIFACT}"
+
+# System requirements
+
+case $DISTR in
+     ubuntu)
+          echo "I know it! It is an operating system based on Debian."
+          ;;
+     centos|rhel)
+          echo "Hey! It is my favorite Server OS!"
+          ;;
+     windows)
+          echo "Very funny..."
+          ;;
+     *)
+          echo "Hmm, seems i've never used it."
+          ;;
+esac
+
+case $DISTRIB_CODENAME in
+     trusty)
+          apt-get install golang-go bootstrap-base systemd
+          ;;
+     xenial)
+          apt-get install golang-go bootstrap-base systemd-container
+          ;;
+     *)
+          echo "Hmm, seems i've never used it."
+          ;;
+esac
 
 pushd /tmp
   #git clone https://github.com/${SLUG}.git ./${NAME}
