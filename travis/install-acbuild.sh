@@ -69,7 +69,7 @@ esac
 
 case $DISTRIB_CODENAME in
      trusty)
-          apt-get -y install golang-go debootstrap-udeb systemd
+          apt-get -y install golang-go debootstrap systemd
           ;;
      xenial)
           apt-get -y install golang-go bootstrap-base systemd-container
