@@ -57,6 +57,7 @@ ARTIFACT_URL="https://github.com/${SLUG}/releases/download/${VERSION}/${ARTIFACT
 case $DISTRIB_ID in
      Ubuntu)
           echo "I know it! It is an operating system based on Debian."
+          apt-get -qq update
           ;;
      Centos|RHEL)
           echo "Hey! It is my favorite Server OS!"
@@ -68,10 +69,10 @@ esac
 
 case $DISTRIB_CODENAME in
      trusty)
-          apt-get install golang-go bootstrap-base systemd
+          apt-get -y install golang-go bootstrap-base systemd
           ;;
      xenial)
-          apt-get install golang-go bootstrap-base systemd-container
+          apt-get -y install golang-go bootstrap-base systemd-container
           ;;
      *)
           echo "Hmm, seems i've never used it."
