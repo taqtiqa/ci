@@ -87,10 +87,9 @@ pushd /tmp
   tar zxvf $ARTIFACT -C ./${NAME} --strip-components=1
   pushd ./${NAME}
     ls -la
-    #./build
-    sudo mkdir -p /opt/${NAME}/bin
-    sudo cp -rf * $BIN_DIR
-    export PATH=$PATH:$BIN_DIR
+    sudo mkdir -p ${BIN_DIR}
+    sudo cp -rf acbuild acbuild-chroot acbuild-script ${BIN_DIR}/
+    export PATH=$PATH:${BIN_DIR}
   popd
 popd
 echo "Success"
