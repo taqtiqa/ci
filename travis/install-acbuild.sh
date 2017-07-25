@@ -54,15 +54,12 @@ ARTIFACT_URL="https://github.com/${SLUG}/releases/download/${VERSION}/${ARTIFACT
 
 # System requirements
 
-case $DISTR in
-     ubuntu)
+case $DISTRIB_ID in
+     Ubuntu)
           echo "I know it! It is an operating system based on Debian."
           ;;
-     centos|rhel)
+     Centos|RHEL)
           echo "Hey! It is my favorite Server OS!"
-          ;;
-     windows)
-          echo "Very funny..."
           ;;
      *)
           echo "Hmm, seems i've never used it."
