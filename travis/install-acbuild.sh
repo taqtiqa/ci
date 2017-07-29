@@ -90,4 +90,6 @@ pushd /tmp
     #export PATH=$PATH:${BIN_DIR}
   popd
 popd
+which /bin/acbuild version
+acbuild version
 echo "Success"
