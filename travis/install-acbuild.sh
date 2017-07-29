@@ -23,10 +23,6 @@
 set -eoux pipefail
 
 . /etc/lsb-release
-#DISTRIB_ID=Ubuntu
-#DISTRIB_RELEASE=12.04
-#DISTRIB_CODENAME=precise
-#DISTRIB_DESCRIPTION="Ubuntu 12.04.2 LTS"
 
 if [ "$EUID" -ne 0 ]; then
     echo "This script uses functionality which requires root privileges"
@@ -69,13 +65,15 @@ esac
 
 case $DISTRIB_CODENAME in
      trusty)
-          apt-get -y install golang-go systemd debootstrap sbuild schroot
+          echo "Install packages for ${DISTRIB_CODENAME}."
+          apt-get -y install golang-go systemd debootstrap schroot
           ;;
      xenial)
-          apt-get -y install golang-go bootstrap-base debootstrap systemd-container sbuild schroot
+          echo "Install packages for ${DISTRIB_CODENAME}."
+          apt-get -y install golang-go debootstrap systemd-container schroot
           ;;
      *)
-          echo "Hmm, seems i've never used it."
+          echo "Hmm, seems i've never used ${DISTRIB_CODENAME}."
           ;;
 esac
 
