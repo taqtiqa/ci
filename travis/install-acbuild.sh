@@ -90,6 +90,6 @@ pushd /tmp
     #export PATH=$PATH:${BIN_DIR}
   popd
 popd
-which /bin/acbuild version
+echo $(which acbuild)
 acbuild version
 echo "Success"
