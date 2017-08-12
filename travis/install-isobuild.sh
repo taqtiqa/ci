@@ -23,7 +23,7 @@
 
 set -eoux pipefail
 
-. /etc/lsb-release
+source /etc/lsb-release
 
 if [ "$EUID" -ne 0 ]; then
     echo "This script uses functionality which requires root privileges"
@@ -68,15 +68,15 @@ case $DISTRIB_CODENAME in
      artful)
           echo "Install packages for (in development) ${DISTRIB_CODENAME}."
           apt-get install -t xenial-backports # Remove on angry release
-          apt-get --yes install syslinux isolinux squashfs-tools genisoimage debootstrap
+          apt-get --yes install syslinux isolinux squashfs-tools genisoimage debootstrap pciutils live-image-standard
           ;;
-     xenial|zesty)
+     xenial)
           echo "Install packages for ${DISTRIB_CODENAME}."
-          apt-get --yes install syslinux isolinux squashfs-tools genisoimage debootstrap
+          apt-get --yes install syslinux isolinux squashfs-tools genisoimage debootstrap pciutils live-image-standard memtest86+
           ;;
      trusty)
           echo "Install packages for ${DISTRIB_CODENAME}."
-          apt-get --yes install syslinux syslinux-common squashfs-tools genisoimage debootstrap
+          apt-get --yes install syslinux syslinux-common squashfs-tools genisoimage debootstrap pciutils live-image-standard memtest86+
           ;;
      hardy)
           wget http://archive.ubuntu.com/ubuntu/pool/main/d/debootstrap/debootstrap_1.0.9~hardy1_all.deb

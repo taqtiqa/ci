@@ -22,7 +22,7 @@
 
 set -eoux pipefail
 
-. /etc/lsb-release
+source /etc/lsb-release
 
 if [ "$EUID" -ne 0 ]; then
     echo "This script uses functionality which requires root privileges"
