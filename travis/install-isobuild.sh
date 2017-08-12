@@ -81,6 +81,7 @@ case $DISTRIB_CODENAME in
      hardy)
           wget http://archive.ubuntu.com/ubuntu/pool/main/d/debootstrap/debootstrap_1.0.9~hardy1_all.deb
           dpkg --install debootstrap_1.0.9~hardy1_all.deb
+          ;;
      *)
           echo "Hmm, seems i've never used ${DISTRIB_CODENAME}."
           ;;
