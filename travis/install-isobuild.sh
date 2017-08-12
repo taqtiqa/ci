@@ -68,7 +68,7 @@ case $DISTRIB_CODENAME in
      artful)
           echo "Install packages for (in development) ${DISTRIB_CODENAME}."
           apt-get install -t xenial-backports # Remove on angry release
-          apt-get --yes install syslinux squashfs-tools genisoimage debootstrap
+          apt-get --yes install syslinux isolinux squashfs-tools genisoimage debootstrap
           ;;
      xenial|zesty)
           echo "Install packages for ${DISTRIB_CODENAME}."
@@ -76,7 +76,7 @@ case $DISTRIB_CODENAME in
           ;;
      trusty)
           echo "Install packages for ${DISTRIB_CODENAME}."
-          apt-get --yes install syslinux isolinux squashfs-tools genisoimage debootstrap
+          apt-get --yes install syslinux syslinux-common squashfs-tools genisoimage debootstrap
           ;;
      hardy)
           wget http://archive.ubuntu.com/ubuntu/pool/main/d/debootstrap/debootstrap_1.0.9~hardy1_all.deb
