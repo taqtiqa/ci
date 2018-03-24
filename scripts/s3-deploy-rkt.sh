@@ -21,11 +21,6 @@ set -eoux pipefail
 
 source /etc/lsb-release
 
-if [ "$EUID" -ne 0 ]; then
-    echo "This script uses functionality which requires root privileges"
-    exit 1
-fi
-
 # REQUIRED environment variables:
 # DEPLOY_BUCKET = your bucket name
 # AWS_ACCESS_KEY_ID = AWS access ID
@@ -64,18 +59,6 @@ DEPLOY_EXTENSIONS=${DEPLOY_EXTENSIONS:-$DEFAULT_EXTENSIONS}
 DEPLOY_SOURCE_DIR=${DEPLOY_SOURCE_DIR:-$DEFAULT_BUILD_DIR}
 PURGE_OLDER_THAN_DAYS=${PURGE_OLDER_THAN_DAYS:-$DEFAULT_PURGE_OLDER_THAN_DAYS}
 
-if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]
-then
-    target_path=pull-request/$DEPLOY_BUCKET_PREFIX
-
-elif [[ -z "$DEPLOY_BRANCHES" || "$TRAVIS_BRANCH" =~ "$DEPLOY_BRANCHES" ]]
-then
-    target_path=${DEPLOY_BUCKET_PREFIX}
-else
-    echo "Not deploying."
-    exit
-fi
-
 discovered_files=""
 for ext in ${DEPLOY_EXTENSIONS}
 do
@@ -92,21 +75,9 @@ fi
 
 ###########################################################
 ##
-## Package Installation
-##
-###########################################################
-add-apt-repository ppa:duggan/bats --yes
-apt-get update -qq
-apt-get install -qq bats python-pip python-setuptools
-pip install --upgrade --user awscli
-
-###########################################################
-##
 ## Deploy & Purge
 ##
 ###########################################################
-
-export PATH=~/.local/bin:$PATH
 
 for file in $files
 do
