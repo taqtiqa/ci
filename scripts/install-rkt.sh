@@ -24,3 +24,5 @@ wget https://github.com/rkt/rkt/releases/download/v1.29.0/rkt_1.29.0-1_amd64.deb
 wget https://github.com/rkt/rkt/releases/download/v1.29.0/rkt_1.29.0-1_amd64.deb.asc
 gpg --verify rkt_1.29.0-1_amd64.deb.asc
 sudo dpkg -i rkt_1.29.0-1_amd64.deb
+rm -f rkt_1.29.0-1_amd64.deb
+rm -f rkt_1.29.0-1_amd64.deb.asc
