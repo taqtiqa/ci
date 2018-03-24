@@ -35,7 +35,7 @@ fi
 add-apt-repository ppa:duggan/bats --yes
 apt-get update -qq
 apt-get install -qq bats python-pip python-setuptools
-pip install --upgrade --user awscli
+pip install --user awscli
 
 export PATH=~/.local/bin:$PATH
 

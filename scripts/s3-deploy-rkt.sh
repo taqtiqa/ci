@@ -21,6 +21,7 @@ set -eoux pipefail
 
 ## Travis-CI install of awscli via pip does not
 ## result in aws being added to the PATH...
+pip install --user awscli
 export PATH=~/.local/bin:$PATH
 
 source /etc/lsb-release
