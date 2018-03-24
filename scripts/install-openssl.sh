@@ -26,11 +26,11 @@ pushd /tmp
   curl -o openssl-security.asc https://www.openssl.org/news/openssl-security.asc
   gpg --no-tty --no-default-keyring --trust-model always --homedir ${TMP_SSL_HOME} --keyserver pgp.mit.edu --recv-key ${OPENSSL_KEY}
   gpg --no-tty --trust-model always --homedir ${TMP_SSL_HOME} --verify openssl-${OPENSSL_VER}.tar.gz.asc
-  tar xzvf openssl-${OPENSSL_VER}.tar.gz
+  $(tar xzvf openssl-${OPENSSL_VER}.tar.gz) >/dev/null
   pushd openssl-${OPENSSL_VER}
-    ./config no-afalgeng -Wl,--enable-new-dtags,-rpath,'$(LIBRPATH)'
-    sudo make
-    sudo make install
+    ./config no-afalgeng -Wl,--enable-new-dtags,-rpath,'$(LIBRPATH)' >/dev/null
+    sudo make > /dev/null
+    sudo make install > /dev/null
   popd
   rm -rf openssl-${OPENSSL_VER}
   rm -rf ${TMP_SSL_HOME}
