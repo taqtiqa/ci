@@ -39,3 +39,4 @@ pip install --upgrade --user awscli
 
 export PATH=~/.local/bin:$PATH
 
+aws --help
