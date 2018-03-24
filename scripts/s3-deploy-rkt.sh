@@ -93,7 +93,7 @@ if [[ $PURGE_OLDER_THAN_DAYS -ge 1 ]]
 then
     echo "Cleaning up builds in S3 older than $PURGE_OLDER_THAN_DAYS days . . ."
 
-    cleanup_prefix=${DEPLOY_BUCKET_PREFIX}
+    cleanup_prefix=${DEPLOY_BUCKET_PATH}
     older_than_ts=`date -d"-${PURGE_OLDER_THAN_DAYS} days" +%s`
 
     #for suffix in deploy pull-request
