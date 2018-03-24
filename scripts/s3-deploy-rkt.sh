@@ -17,7 +17,14 @@
 #If not, see <https://www.gnu.org/licenses/agpl-3.0.en.html>.
 #
 
-set -e -u
+set -eoux pipefail
+
+source /etc/lsb-release
+
+if [ "$EUID" -ne 0 ]; then
+    echo "This script uses functionality which requires root privileges"
+    exit 1
+fi
 
 # REQUIRED environment variables:
 # DEPLOY_BUCKET = your bucket name
@@ -83,7 +90,21 @@ then
     exit 1
 fi
 
+###########################################################
+##
+## Package Installation
+##
+###########################################################
+add-apt-repository ppa:duggan/bats --yes
+apt-get install -qq bats python-pip python-setuptools
 pip install --upgrade --user awscli
+
+###########################################################
+##
+## Deploy & Purge
+##
+###########################################################
+
 export PATH=~/.local/bin:$PATH
 
 for file in $files
