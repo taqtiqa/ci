@@ -17,6 +17,14 @@
 #If not, see <https://www.gnu.org/licenses/agpl-3.0.en.html>.
 #
 
+echo "#########################################################"
+echo "##"
+echo "##  STARTING: $0"
+echo "##"
+echo "#########################################################"
+
+set -eoux pipefail
+
 OPENSSL_VER='1.1.0f'
 OPENSSL_KEY='0E604491'
 pushd /tmp

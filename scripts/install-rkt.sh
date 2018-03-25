@@ -17,6 +17,14 @@
 #If not, see <https://www.gnu.org/licenses/agpl-3.0.en.html>.
 #
 
+echo "#########################################################"
+echo "##"
+echo "##  STARTING: $0"
+echo "##"
+echo "#########################################################"
+
+set -eoux pipefail
+
 # See https://unix.stackexchange.com/a/401548/251061
 sudo apt-get install -qq dirmngr cgmanager cgroup-lite systemd
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 18AD5014C99EF7E3BA5F6CE950BDD3E0FC8A365E

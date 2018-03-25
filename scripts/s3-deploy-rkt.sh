@@ -17,6 +17,12 @@
 #If not, see <https://www.gnu.org/licenses/agpl-3.0.en.html>.
 #
 
+echo "#########################################################"
+echo "##"
+echo "##  STARTING: $0"
+echo "##"
+echo "#########################################################"
+
 set -eoux pipefail
 
 ## Travis-CI install of awscli via pip does not

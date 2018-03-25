@@ -17,6 +17,12 @@
 #If not, see <https://www.gnu.org/licenses/agpl-3.0.en.html>.
 #
 
+echo "#########################################################"
+echo "##"
+echo "##  STARTING: $0"
+echo "##"
+echo "#########################################################"
+
 set -eoux pipefail
 
 source /etc/lsb-release
@@ -35,6 +41,7 @@ fi
 add-apt-repository ppa:duggan/bats --yes
 apt-get update -qq
 apt-get install -qq bats python-pip python-setuptools
+pip install --upgrade pip
 pip install --user awscli
 
 export PATH=~/.local/bin:$PATH
