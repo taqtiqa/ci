@@ -40,9 +40,11 @@ fi
 ###########################################################
 add-apt-repository ppa:duggan/bats --yes
 apt-get update -qq
-apt-get install -qq bats python-pip python-setuptools
+apt-get install -qq bats python-pip python-setuptools python-dev libssl-dev libffi-dev
 pip install --upgrade pip
+pip install pyOpenSSL ndg-httpsclient pyasn1
 pip install --user awscli
+
 
 export PATH=~/.local/bin:$PATH
 
