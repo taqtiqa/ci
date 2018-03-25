@@ -90,7 +90,7 @@ fi
 pushd ${DEPLOY_SOURCE_DIR}
     for file in $files
     do
-        aws s3 cp $file s3://$DEPLOY_BUCKET/$DEPLOY_BUCKET_PATH
+        aws s3 cp $file s3://$DEPLOY_BUCKET/$DEPLOY_BUCKET_PATH/
     done
 popd
 
