@@ -26,7 +26,7 @@ echo "#########################################################"
 set -eoux pipefail
 
 # See https://unix.stackexchange.com/a/401548/251061
-sudo apt-get install -qq dirmngr cgmanager cgroup-lite systemd expect
+sudo apt-get install -qq dirmngr cgmanager cgroup-lite systemd expect expect-dev
 gpg --no-default-keyring --keyring ./rkt-deb-pubkey.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-key 18AD5014C99EF7E3BA5F6CE950BDD3E0FC8A365E
 wget -q https://github.com/rkt/rkt/releases/download/v1.29.0/rkt_1.29.0-1_amd64.deb 
 wget -q https://github.com/rkt/rkt/releases/download/v1.29.0/rkt_1.29.0-1_amd64.deb.asc
