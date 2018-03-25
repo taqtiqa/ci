@@ -65,11 +65,13 @@ DEPLOY_EXTENSIONS=${DEPLOY_EXTENSIONS:-$DEFAULT_EXTENSIONS}
 DEPLOY_SOURCE_DIR=${DEPLOY_SOURCE_DIR:-$DEFAULT_SOURCE_DIR}
 PURGE_OLDER_THAN_DAYS=${PURGE_OLDER_THAN_DAYS:-$DEFAULT_PURGE_OLDER_THAN_DAYS}
 
-discovered_files=""
-for ext in ${DEPLOY_EXTENSIONS}
-do
-    discovered_files+=" $(ls $DEPLOY_SOURCE_DIR/*.${ext} 2>/dev/null || true)"
-done
+pushd ${DEPLOY_SOURCE_DIR}
+    discovered_files=""
+    for ext in ${DEPLOY_EXTENSIONS}
+    do
+        discovered_files+=" $(ls ./*.${ext} 2>/dev/null || true)"
+    done
+popd
 
 files=${DEPLOY_FILES:-$discovered_files}
 
@@ -85,10 +87,12 @@ fi
 ##
 ###########################################################
 
-for file in $files
-do
-    aws s3 cp $file s3://$DEPLOY_BUCKET/$DEPLOY_BUCKET_PATH
-done
+pushd ${DEPLOY_SOURCE_DIR}
+    for file in $files
+    do
+        aws s3 cp $file s3://$DEPLOY_BUCKET/$DEPLOY_BUCKET_PATH
+    done
+popd
 
 if [[ $PURGE_OLDER_THAN_DAYS -ge 1 ]]
 then
