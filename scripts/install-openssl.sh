@@ -27,9 +27,9 @@ set -eoux pipefail
 
 OPENSSL_VER='1.1.0f'
 OPENSSL_KEY='0E604491'
-pushd /tmp
-  TMP_SSL_HOME=$( mktemp -d -t 'XXXX' )
-  chmod 700 $TMP_SSL_HOME
+TMP_SSL_HOME=$( mktemp -d -t 'XXXX' )
+chmod 700 ${TMP_SSL_HOME}
+pushd ${TMP_SSL_HOME}
   curl -o openssl-${OPENSSL_VER}.tar.gz https://www.openssl.org/source/openssl-${OPENSSL_VER}.tar.gz
   curl -o openssl-${OPENSSL_VER}.tar.gz.asc https://www.openssl.org/source/openssl-${OPENSSL_VER}.tar.gz.asc
   curl -o openssl-security.asc https://www.openssl.org/news/openssl-security.asc
@@ -42,5 +42,5 @@ pushd /tmp
     sudo make install > /dev/null
   popd
   rm -rf openssl-${OPENSSL_VER}
-  rm -rf ${TMP_SSL_HOME}
 popd
+rm -rf ${TMP_SSL_HOME}
