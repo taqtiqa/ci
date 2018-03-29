@@ -41,7 +41,7 @@ STRING=$2
 
 if [[ $# -lt 2 ]] ; then
   echo "Usage: travis-encrypt <public_key> <string>"
-  echo "Example: travis-encrypt ./public-key.pem ENV_VAR_A='s3kret'"
+  echo "Example: travis-encrypt ./public-key.pem ACI_SECRET='s3kret'"
   exit 1
 fi
 
