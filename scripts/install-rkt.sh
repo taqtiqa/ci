@@ -31,6 +31,6 @@ gpg --no-default-keyring --keyring ./rkt-deb-pubkey.gpg --keyserver hkp://keyser
 wget -q https://github.com/rkt/rkt/releases/download/v1.29.0/rkt_1.29.0-1_amd64.deb 
 wget -q https://github.com/rkt/rkt/releases/download/v1.29.0/rkt_1.29.0-1_amd64.deb.asc
 gpg --no-default-keyring --keyring ./rkt-deb-pubkey.gpg --verify rkt_1.29.0-1_amd64.deb.asc
-sudo gdebi --non-interactive rkt_1.29.0-1_amd64.deb
+sudo -- sh -c 'DEBIAN_FRONTEND=noninteractive; gdebi --non-interactive --quiet rkt_1.29.0-1_amd64.deb'
 rm -f rkt_1.29.0-1_amd64.deb
 rm -f rkt_1.29.0-1_amd64.deb.asc
