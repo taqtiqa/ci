@@ -33,7 +33,7 @@ pushd /tmp
   curl -o openssl-${OPENSSL_VER}.tar.gz https://www.openssl.org/source/openssl-${OPENSSL_VER}.tar.gz
   curl -o openssl-${OPENSSL_VER}.tar.gz.asc https://www.openssl.org/source/openssl-${OPENSSL_VER}.tar.gz.asc
   curl -o openssl-security.asc https://www.openssl.org/news/openssl-security.asc
-  gpg --no-tty --no-default-keyring --trust-model always --homedir ${TMP_SSL_HOME} --keyserver hkp://keyserver.ubuntu.com:80 --recv-key ${OPENSSL_KEY}
+  gpg --no-tty --no-default-keyring --trust-model always --homedir ${TMP_SSL_HOME} --keyserver hkp://pool.sks-keyservers.net --recv-key ${OPENSSL_KEY}
   gpg --no-tty --trust-model always --homedir ${TMP_SSL_HOME} --verify openssl-${OPENSSL_VER}.tar.gz.asc
   tar -xzf openssl-${OPENSSL_VER}.tar.gz
   pushd openssl-${OPENSSL_VER}
