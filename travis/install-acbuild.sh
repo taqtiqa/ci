@@ -20,6 +20,12 @@
 # IMPORTANT: Your .travis.yml must pipe this script to bash (not to sh)!
 # In the Travis CI environment a #!/bin/bash shebang here won't help.
 
+echo "#########################################################"
+echo "##"
+echo "##  STARTING: $0"
+echo "##"
+echo "#########################################################"
+
 set -eoux pipefail
 
 source /etc/lsb-release

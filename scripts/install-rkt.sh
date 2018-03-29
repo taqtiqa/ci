@@ -26,11 +26,11 @@ echo "#########################################################"
 set -eoux pipefail
 
 # See https://unix.stackexchange.com/a/401548/251061
-sudo apt-get install -qq dirmngr cgmanager cgroup-lite systemd expect expect-dev
+sudo apt-get install -qq dirmngr cgmanager cgroup-lite systemd expect expect-dev gdebi-core
 gpg --no-default-keyring --keyring ./rkt-deb-pubkey.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-key 18AD5014C99EF7E3BA5F6CE950BDD3E0FC8A365E
 wget -q https://github.com/rkt/rkt/releases/download/v1.29.0/rkt_1.29.0-1_amd64.deb 
 wget -q https://github.com/rkt/rkt/releases/download/v1.29.0/rkt_1.29.0-1_amd64.deb.asc
 gpg --no-default-keyring --keyring ./rkt-deb-pubkey.gpg --verify rkt_1.29.0-1_amd64.deb.asc
-sudo dpkg -i rkt_1.29.0-1_amd64.deb
+sudo gdebi --non-interactive rkt_1.29.0-1_amd64.deb
 rm -f rkt_1.29.0-1_amd64.deb
 rm -f rkt_1.29.0-1_amd64.deb.asc

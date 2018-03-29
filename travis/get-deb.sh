@@ -31,6 +31,14 @@
 # This is a workaround for https://github.com/travis-ci/travis-ci/issues/5221
 # Whereby packages are not found.
 
+echo "#########################################################"
+echo "##"
+echo "##  STARTING: $0"
+echo "##"
+echo "#########################################################"
+
+set -eoux pipefail
+
 U="$1"
 FILE="$2"
 

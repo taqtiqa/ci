@@ -21,6 +21,12 @@
 # (not to sh)! in the Travis CI environment.
 # A #!/bin/bash shebang here won't help.
 
+echo "#########################################################"
+echo "##"
+echo "##  STARTING: $0"
+echo "##"
+echo "#########################################################"
+
 set -eoux pipefail
 
 source /etc/lsb-release

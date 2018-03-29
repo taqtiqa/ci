@@ -32,7 +32,6 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-
 ###########################################################
 ##
 ## Package Installation
@@ -45,7 +44,4 @@ pip install --upgrade pip
 pip install pyOpenSSL ndg-httpsclient pyasn1
 pip install --user awscli
 
-
 export PATH=~/.local/bin:$PATH
-
-aws help
