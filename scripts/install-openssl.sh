@@ -25,13 +25,13 @@ echo "#########################################################"
 
 set -eoux pipefail
 
-OPENSSL_VER='1.1.0f'
+OPENSSL_VER='1.1.0g'
 OPENSSL_KEY='0E604491'
 TMP_SSL_HOME=$( mktemp -d -t 'XXXX' )
 chmod 700 ${TMP_SSL_HOME}
 pushd ${TMP_SSL_HOME}
-  curl -L -o openssl-${OPENSSL_VER}.tar.gz https://www.openssl.org/source/openssl-${OPENSSL_VER}.tar.gz
-  curl -L -o openssl-${OPENSSL_VER}.tar.gz.asc https://www.openssl.org/source/openssl-${OPENSSL_VER}.tar.gz.asc
+  curl -L -o openssl-${OPENSSL_VER}.tar.gz https://www.openssl.org/source/old/1.1.0/openssl-${OPENSSL_VER}.tar.gz
+  curl -L -o openssl-${OPENSSL_VER}.tar.gz.asc https://www.openssl.org/source/old/1.1.0/openssl-${OPENSSL_VER}.tar.gz.asc
   curl -L -o openssl-security.asc https://www.openssl.org/news/openssl-security.asc
   ls -la
   gpg --no-tty --no-default-keyring --trust-model always --homedir ${TMP_SSL_HOME} --keyserver hkp://pool.sks-keyservers.net --recv-key ${OPENSSL_KEY}
