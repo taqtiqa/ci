@@ -25,7 +25,7 @@ echo "#########################################################"
 
 set -eoux pipefail
 
-OPENSSL_VER='1.1.0g'
+OPENSSL_VER='1.1.0f'
 OPENSSL_KEY='0E604491'
 TMP_SSL_HOME=$( mktemp -d -t 'XXXX' )
 chmod 700 ${TMP_SSL_HOME}
