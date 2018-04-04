@@ -45,10 +45,6 @@ source /etc/lsb-release
 # AWS_SESSION_TOKEN = optional AWS session token for temp keys
 # PURGE_OLDER_THAN_DAYS = Files in the .../deploy and .../pull-request prefixes in S3 older than this number of days will be deleted; leave blank for 90, 0 to disable.
 
-if [[ -z "${DEPLOY_BUCKET}" ]]
-then
-    echo "Bucket not specified via \$DEPLOY_BUCKET"
-fi
 if [[ -z "${AWS_ACCESS_KEY_ID}" ]]
 then
     echo "AWS access key ID not specified via \$AWS_ACCESS_KEY_ID"
@@ -58,6 +54,7 @@ then
     echo "AWS secret access key not specified via \$AWS_SECRET_ACCESS_KEY"
 fi
 
+DEFAULT_DEPLOY_BUCKET=taqtiqa.io
 DEFAULT_BUCKET_PATH=aci
 DEFAULT_BRANCHES=master
 DEFAULT_EXTENSIONS="aci asc enc"
@@ -65,6 +62,7 @@ DEFAULT_BUILD_DIR=$TRAVIS_BUILD_DIR
 DEFAULT_SOURCE_DIR=deploy
 DEFAULT_PURGE_OLDER_THAN_DAYS="90"
 
+DEPLOY_BUCKET=${DEPLOY_BUCKET:-$DEFAULT_DEPLOY_BUCKET}
 DEPLOY_BUCKET_PATH=${DEPLOY_BUCKET_PATH:-$DEFAULT_BUCKET_PATH}
 DEPLOY_BRANCHES=${DEPLOY_BRANCHES:-$DEFAULT_BRANCHES}
 DEPLOY_EXTENSIONS=${DEPLOY_EXTENSIONS:-$DEFAULT_EXTENSIONS}
