@@ -127,12 +127,12 @@ buildah version
 # See https://github.com/appc/docker2aci/issues/257
 
 pushd /tmp
-  git clone git://github.com/woofwoofinc/docker2aci
+  git clone https://github.com/woofwoofinc/docker2aci.git
   pushd docker2aci
     ./build.sh
   popd
 popd
 
-actool --debug validate ubuntu-latest.aci
+#actool --debug validate ubuntu-latest.aci
 
 echo "Success"
