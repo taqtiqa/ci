@@ -13,7 +13,7 @@ apt-key adv --keyserver p80.pool.sks-keyservers.net:80 --recv-keys 6A030B21BA07F
 apt-key adv --keyserver p80.pool.sks-keyservers.net:80 --recv-keys 16126D3A3E5C1192
 apt-get update
 # sudo apt-get install golang 
-apt-get install -qq libgpgme11-dev libassuan-dev btrfs-tools libdevmapper-dev
+apt-get install -qq libgtk2.0-dev libglib2.0-dev libgpgme11-dev libassuan-dev btrfs-tools libdevmapper-dev
 go get github.com/containers/image
 git clone https://github.com/projectatomic/skopeo $GOPATH/src/github.com/projectatomic/skopeo
 cd $GOPATH/src/github.com/projectatomic/skopeo 
