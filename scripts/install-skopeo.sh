@@ -9,11 +9,11 @@ deb http://security.ubuntu.com/ubuntu trusty-security main restricted universe m
 deb http://archive.canonical.com/ubuntu trusty partner    
 deb http://extras.ubuntu.com/ubuntu trusty main   
 EOF
-sudo apt-get update
+apt-get update
 # sudo apt-get install golang 
-sudo apt-get install -qq libgpgme-dev libassuan-dev btrfs-tools libdevmapper-dev
+apt-get install -qq libgpgme-dev libassuan-dev btrfs-tools libdevmapper-dev
 go get github.com/containers/image
 git clone https://github.com/projectatomic/skopeo $GOPATH/src/github.com/projectatomic/skopeo
 cd $GOPATH/src/github.com/projectatomic/skopeo 
 make binary-local
-sudo make install
+make install
