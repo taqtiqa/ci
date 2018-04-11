@@ -11,7 +11,7 @@ deb http://extras.ubuntu.com/ubuntu trusty main
 EOF
 apt-get update
 # sudo apt-get install golang 
-apt-get install -qq libgpgme-dev libassuan-dev btrfs-tools libdevmapper-dev
+apt-get install -qq libgpgme11-dev libassuan-dev btrfs-tools libdevmapper-dev
 go get github.com/containers/image
 git clone https://github.com/projectatomic/skopeo $GOPATH/src/github.com/projectatomic/skopeo
 cd $GOPATH/src/github.com/projectatomic/skopeo 
